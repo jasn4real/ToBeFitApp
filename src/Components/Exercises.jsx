@@ -11,11 +11,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
-
-// import solid from "../assets/heart-solid.png";
-// import hollow from "../assets/heart-regular.png";
-
 import "bootstrap/dist/css/bootstrap.min.css";
+// import "../Styling/home.css";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -89,43 +86,43 @@ export default function Exercises() {
         </Row>
         <Row>
           {/* <Col style={{ display: "flex", justifyContent: "center" }}> */}
-            {list.map((exercise) => {
-              let link = "./" + exercise.id;
+          {list.map((exercise) => {
+            let link = "./" + exercise.id;
 
-              return (
-                <Col key={exercise.name} sm={5} md={3} lg={1}>
-                  <Card
+            return (
+              <Col key={exercise.name} sm={5} md={3} lg={1}>
+                <Card
+                  style={{
+                    width: "18rem",
+                    margin: "20px",
+                    boxShadow: "1px 2px 9px #999999",
+                    padding: 0,
+                  }}
+                >
+                  <Card.Img
+                    variant="top"
                     style={{
-                      width: "18rem",
-                      margin: "20px",
-                      boxShadow: "1px 2px 9px #999999",
+                      margin: 0,
                       padding: 0,
+                      borderRadius: "30px, 30px, 0px, 0px",
                     }}
-                  >
-                    <Card.Img
-                      variant="top"
-                      style={{
-                        margin: 0,
-                        padding: 0,
-                        borderRadius: "30px, 30px, 0px, 0px",
-                      }}
-                      src={exercise.image || unknown}
-                    ></Card.Img>
-                    <Card.Body className="d-grid gap-2">
-                      <Card.Title>{exercise.name} </Card.Title>
-                      <Card.Text></Card.Text>
-                    </Card.Body>
-                    <Link to={link}>
-                      <ListGroup variant="flush" className="list-group-mine">
-                        <ListGroup.Item action variant="dark">
-                          More Info...
-                        </ListGroup.Item>
-                      </ListGroup>
-                    </Link>
-                  </Card>
-                </Col>
-              );
-            })}
+                    src={exercise.image || unknown}
+                  ></Card.Img>
+                  <Card.Body className="d-grid gap-2">
+                    <Card.Title>{exercise.name} </Card.Title>
+                    <Card.Text></Card.Text>
+                  </Card.Body>
+                  <Link to={link}>
+                    <ListGroup variant="flush" className="list-group-mine">
+                      <ListGroup.Item action variant="dark">
+                        More Info...
+                      </ListGroup.Item>
+                    </ListGroup>
+                  </Link>
+                </Card>
+              </Col>
+            );
+          })}
           {/* </Col> */}
         </Row>
       </Container>
